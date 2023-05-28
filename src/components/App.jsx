@@ -2,6 +2,8 @@ import React from  "react";
 import Cart from "./Cart.jsx"
 import Header from "./Header.jsx";
 import contacts from "../contacts";
+import Avatar from "./Avatar.jsx";
+import { computeHeadingLevel } from "@testing-library/react";
 // import Footer from "./Footer.jsx";
 // import Note from "./Note.jsx"
 
@@ -21,11 +23,29 @@ import contacts from "../contacts";
 // export default App;
 // ########################################################
 // React props practice
+function createCart(contacts){
+  return(
+    <Cart
+      id = {contacts.id}
+      key = {contacts.id}
+      name = {contacts.name}
+      img = {contacts.img}
+      tel = {contacts.tel}
+      email = {contacts.email}
+    />
+  );
+}
 function App(){
        return (
+        
         <div>
+            
             <h1 className="heading">My Contacts</h1>
-            <Cart
+            <Avatar
+            img = "https://cdn.pixabay.com/photo/2015/05/02/08/02/angel-749625_1280.jpg"/>
+            {contacts.map(createCart)}
+            
+            {/* <Cart
             pname = {contacts[0].name}
             img = {contacts[0].imgURL}
             tel = {contacts[0].phone}
@@ -42,7 +62,7 @@ function App(){
             img = {contacts[2].imgURL}
             tel = {contacts[2].phone}
             email = {contacts[2].email}
-            />
+            /> */}
         </div>
       );
 }
